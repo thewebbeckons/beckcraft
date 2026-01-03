@@ -1,12 +1,5 @@
 <script setup lang="ts">
-const collections = [
-  { name: 'Cotton', to: '/collections/cotton' },
-  { name: 'Linen', to: '/collections/linen' },
-  { name: 'Weighted', to: '/collections/weighted' },
-  { name: 'Baby', to: '/collections/baby' },
-  { name: 'Journal', to: '/journal' }
-]
-
+const cartOpen = defineModel<boolean>('cartOpen', { default: false })
 const cartCount = ref(0)
 </script>
 
@@ -18,25 +11,13 @@ const cartCount = ref(0)
         Terrimade
       </NuxtLink>
 
-      <!-- Navigation -->
-      <nav class="hidden md:flex items-center gap-8">
-        <NuxtLink
-          v-for="item in collections"
-          :key="item.name"
-          :to="item.to"
-          class="text-xs font-sans uppercase tracking-widest text-ink-soft hover:text-sage-500 transition-colors duration-300"
-        >
-          {{ item.name }}
-        </NuxtLink>
-      </nav>
-
-      <!-- Cart -->
-      <NuxtLink
-        to="/cart"
+      <!-- Cart Button -->
+      <button
         class="text-xs font-sans uppercase tracking-widest text-ink-soft hover:text-sage-500 transition-colors duration-300"
+        @click="cartOpen = true"
       >
         Bag ({{ cartCount }})
-      </NuxtLink>
+      </button>
     </div>
   </header>
 </template>

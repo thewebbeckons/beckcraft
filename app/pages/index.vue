@@ -42,7 +42,7 @@
               Hand-stitched layers of organic cotton, designed for slow mornings and long winters.
             </p>
             <div 
-              class="flex flex-col sm:flex-row gap-4 animate-fade-in-up"
+              class="animate-fade-in-up"
               style="animation-delay: 0.3s;"
             >
               <UButton
@@ -50,15 +50,10 @@
                 color="primary"
                 variant="solid"
                 class="rounded-full px-8 py-4 shadow-warm-lg hover:shadow-warm-xl transition-all duration-300"
+                @click="$el.closest('section').nextElementSibling?.scrollIntoView({ behavior: 'smooth' })"
               >
                 Shop Collection
               </UButton>
-              <NuxtLink
-                to="/about"
-                class="font-serif italic text-ink underline underline-offset-4 hover:text-sage-600 transition-colors self-center"
-              >
-                Read our Story
-              </NuxtLink>
             </div>
           </div>
 
@@ -145,17 +140,7 @@
           </div>
         </div>
 
-        <!-- View All Button -->
-        <div class="text-center mt-12">
-          <UButton
-            size="lg"
-            color="primary"
-            variant="outline"
-            class="rounded-full px-10"
-          >
-            View All Quilts
-          </UButton>
-        </div>
+
       </div>
     </section>
 
@@ -184,12 +169,7 @@
             <p class="text-ink-soft text-lg leading-relaxed mb-8">
               The result is more than a blanket. It's an heirloom.
             </p>
-            <NuxtLink
-              to="/about"
-              class="font-serif italic text-ink underline underline-offset-4 hover:text-sage-600 transition-colors"
-            >
-              Learn about our craft
-            </NuxtLink>
+
           </div>
         </div>
       </div>

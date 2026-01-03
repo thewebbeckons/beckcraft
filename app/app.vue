@@ -21,20 +21,25 @@ useSeoMeta({
   description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
+  ogImage: '/og-image.png',
+  twitterImage: '/og-image.png',
   twitterCard: 'summary_large_image'
 })
+
+const cartOpen = ref(false)
 </script>
 
 <template>
   <UApp class="bg-canvas min-h-screen">
-    <AppHeader />
+    <AppHeader v-model:cart-open="cartOpen" />
 
     <main class="pt-16">
       <NuxtPage />
     </main>
 
     <AppFooter />
+
+    <CartSlideover v-model:open="cartOpen" />
   </UApp>
 </template>
+
